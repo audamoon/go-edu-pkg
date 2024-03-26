@@ -18,7 +18,7 @@ type ErrorResponse struct {
 }
 
 var ErrorsMessage = map[error]*ErrorResponse{
-	ErrResNotFound:   &ErrorResponse{http.StatusNotFound, "error", "Resource not found"},
-	ErrBadRequest:    &ErrorResponse{http.StatusBadRequest, "error", "Bad request"},
-	ErrInternalError: &ErrorResponse{http.StatusInternalServerError, "error", "Something goes wrong"},
+	ErrResNotFound:   {http.StatusNotFound, "error", "Resource not found"},
+	ErrBadRequest:    {http.StatusBadRequest, "error", "Bad request"},
+	ErrInternalError: {http.StatusInternalServerError, "error", "Something goes wrong"},
 }
