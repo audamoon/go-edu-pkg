@@ -1,9 +1,8 @@
-package connect
+package connections
 
 import (
 	"database/sql"
 	"fmt"
-	"github.com/pkg/errors"
 )
 
 type DBConfig struct {
@@ -27,11 +26,11 @@ func NewPostgresInstance(c *DBConfig) (*sql.DB, error) {
 
 	db, err := sql.Open("postgres", connSettings)
 	if err != nil {
-		return nil, errors.Wrap(err, "db init")
+		return nil, fmt.Errorf("db init: %w", err)
 	}
 
 	if err := db.Ping(); err != nil {
-		return nil, errors.Wrap(err, "db ping")
+		return nil, fmt.Errorf("db ping: %w", err)
 	}
 
 	return db, nil

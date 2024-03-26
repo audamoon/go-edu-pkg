@@ -1,4 +1,4 @@
-package myerrors
+package reqerror
 
 import (
 	"errors"
@@ -12,7 +12,7 @@ var (
 )
 
 type ErrorResponse struct {
-	code   int
+	Code   int
 	Status string `json:"status"`
 	Error  string `json:"error"`
 }
